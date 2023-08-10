@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Campaña</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1> CAMPAÑAS </h1>
+    <hr>
+    <h2> Nuevo Campania </h2>
+    <form action="#" th:action="@{/guardarCampania}" th:object="${campania}" method="post">
+
+
+        <input type="text" th:field="*{nomCampania}" placeholder="Nombre de Campaña" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{empresa}" placeholder="Empresa" class="form-control mb-4 col-4">
+        <input type="date" th:field="*{fechaInicio}" placeholder="Fecha Inicio" class="form-control mb-4 col-4">
+        <input type="date" th:field="*{fechaFin}" placeholder="Fecha Fin" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{costo}" placeholder="Costo" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{estado}" placeholder="Estado" class="form-control mb-4 col-4">
+        <button type="submit" class="btn btn-info col-2"> Guardar</button>
+    </form>
+</div>
+
+</body>
+</html>

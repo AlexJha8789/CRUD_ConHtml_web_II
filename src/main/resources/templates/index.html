@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAMPAÑAS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+  <h1>Listado de Campañas</h1>
+  <a th:href="@{/nuevoCampania}"   class="btn btn-primary btn-sm mb-3" > Agregar Campania </a>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>IdCampaña</th>
+      <th>Nombre Campaña</th>
+      <th>Empresa</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Costo</th>
+      <th>Estado</th>
+      <th>Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="campania : ${listaCampanias}">
+      <td th:text="${campania.getId()}" ></td>
+      <td th:text="${campania.getNomCampania()}" ></td>
+      <td th:text="${campania.getEmpresa()}" ></td>
+      <td th:text="${#dates.format(campania.getFechaInicio(), 'dd/MM/yyyy')}" ></td>
+      <td th:text="${#dates.format(campania.getFechaFin(), 'dd/MM/yyyy')}" ></td>
+      <td th:text="${campania.getCosto()}" ></td>
+      <td th:text="${campania.getEstado()}" ></td>
+
+      <td>  <a th:href="@{/actualizarCampania/{id}(id=${campania.id})}" class="btn btn-primary"> Actualizar </a>
+        <a th:href="@{/eliminarCampania/{id}(id=${campania.id})}"   class="btn btn-danger"> Eliminar </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
